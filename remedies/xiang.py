@@ -9,3 +9,14 @@ Created on Thu 17 Jul 2022
 ####################################
 # show image of bhaisajyaguru
 ####################################
+# image of background
+# image of buddha
+# image of incense and tributes
+
+
+
+####################################
+# rotate wishes
+####################################
+
+
