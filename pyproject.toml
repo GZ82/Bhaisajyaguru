@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "bhaisajyaguru"
+name = "remedies"
 version = "0.1.0"
 description = "seed in hearts"
 authors = ["Zhen Guo <zhen.guo82@hotmail.com>"]
