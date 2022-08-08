@@ -27,7 +27,7 @@ import itertools
 import pickle
 from PIL import Image
 
-from flask import Flask, jsonify, render_template_string, render_template, make_response, send_file, after_this_request, session
+from flask import Flask, Response, jsonify, render_template_string, render_template, make_response, send_file, after_this_request, session
 from flask_restful import reqparse, abort, Api, Resource
 
 # def encoded_image(pil_img):
@@ -56,28 +56,58 @@ from flask_restful import reqparse, abort, Api, Resource
 
 
 # set up api
-app = Flask('remedies')
+app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
+IMAGE_FOLDER = os.path.join('resources', 'images')
+SOUND_FOLDER = os.path.join('resources', 'sounds')
+app.config['IMAGE_FOLDER'] = IMAGE_FOLDER 
+app.config['SOUND_FOLDER'] = SOUND_FOLDER 
 api = Api(app)
 
-@app.after_request
-def after_request(response):
-    response.headers.add('Access-Control-Allow-Origin', '*')
-    response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
-    response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    return response
+# @app.after_request
+# def after_request(response):
+#     response.headers.add('Access-Control-Allow-Origin', '*')
+#     response.headers.add('Access-Control-Allow-Headers', 'Content-Type,Authorization')
+#     response.headers.add('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
+#     return response
 
 
 #####################
-# load Pictures
+# home
 #####################
 # load the main Pictures of Bhaisajyaguru
-@app.route('/api/v1/api_v1/home', methods=['GET'])
-def short_router_welcome():
-    filename = pkg_resources.resource_filename('remedies', 'resources/images/main_pic.jpeg')
-    return send_file(filename, mimetype='image/jpg')
+# @app.route('/api/v1/api_v1/home', methods=['GET'])
+# def short_router_welcome():
+#     filename = pkg_resources.resource_filename('remedies', 'resources/images/main_pic.jpeg')
+#     return send_file(filename, mimetype='image/jpg')
 
-parser = reqparse.RequestParser()
+# parser = reqparse.RequestParser()
+@app.route("/home")
+def home():
+    img_path = os.path.join(app.config['IMAGE_FOLDER'], 'main_pic.jpg')
+    return render_template('home.html', image=img_path)
+
+# background sound
+@app.route("/wav")
+def streamwav():
+    def generate():
+        sound_bk = os.path.join(app.config['SOUND_FOLDER'], 'bk_sound.wav')
+        with open(sound_bk, "rb") as fwav:
+            data = fwav.read(1024)
+            while data:
+                yield data
+                data = fwav.read(1024)
+    return Response(generate(), mimetype="audio/x-wav")
+
+#@app.route("/ogg")
+#def streamogg():
+#    def generate():
+#        with open("signals/song.ogg", "rb") as fogg:
+#            data = fogg.read(1024)
+#            while data:
+#                yield data
+#                data = fogg.read(1024)
+#    return Response(generate(), mimetype="audio/ogg")
 
 #####################
 # login logout
