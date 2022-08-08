@@ -74,19 +74,20 @@ api = Api(app)
 # home
 #####################
 # load the main Pictures of Bhaisajyaguru
-# @app.route('/api/v1/api_v1/home', methods=['GET'])
+# @app.route('/home', methods=['GET'])
 # def short_router_welcome():
-#     filename = pkg_resources.resource_filename('remedies', 'resources/images/main_pic.jpeg')
-#     return send_file(filename, mimetype='image/jpg')
+#     img_home = app.config['IMAGE_FOLDER'] + 'main_pic.jpeg'
+#     return send_file(img_home, mimetype='image/jpg')
 
 # parser = reqparse.RequestParser()
-@app.route("/index")
-# @app.route("/home/<image>")
+
+@app.route("/home",  methods=['GET'])
+@app.route("/home/<image>")
 def home():
     img_home = app.config['IMAGE_FOLDER'] + 'main_pic.jpeg'
     # img_home = 'main_pic.jpeg'
     logging.debug(app.config['IMAGE_FOLDER'])
-    return render_template('index.html', image=img_home)
+    return render_template('home.html', image=img_home)
 
 # background sound
 @app.route("/wav")
