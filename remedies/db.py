@@ -5,8 +5,16 @@
 Created on Aug 02 2022
 @author: Zhen
 Initialize the database
-to initialize, run:
+to initialize, 
+Under:
+/Users/Guo/Pcode/Github/Bhaisajyaguru/Bhaisajyaguru/
+in which contains: README.md	pyproject.toml	remedies
+run:
 flask --app remedies init-db
+this create a folder "instance" which will not be relected in version control
+in which database: remedies.sqlite, will also be generated automatically 
+including the name of the database is also assigned automatically
+but the app will not run, so this command line is only to create the instance folder and the database
 """
 
 import sqlite3

@@ -9,8 +9,11 @@ The __init__.py serves double duty:
 it will contain the application factory, 
 and it tells Python that the remedies directory should be treated as a package
 
+Under:
+/Users/Guo/Pcode/Github/Bhaisajyaguru/Bhaisajyaguru/
+in which contains: README.md	pyproject.toml	remedies
 run:
-flask --app flaskr --debug run
+flask --app remedies --debug run
 
 """
 
@@ -60,4 +63,10 @@ def create_app(test_config=None):
     from . import db
     db.init_app(app)
 
+    # register blueprint for authentication
+    from . import auth
+    app.register_blueprint(auth.bp)
+
     return app
+
+    
