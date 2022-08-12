@@ -14,6 +14,7 @@ Flask views:
 Flask Blueprints:
 * views do not directly register to you app, but via Blueprints: view -register-blueprint-regester->app
 * A Blueprint is a way to organize a group of related views and other code. 
+# This Blueprint is for authentication functions, can create a separate one for other functions e.g., blog posts functions
 
 session:
 * session is a dict that stores data across requests. 
@@ -29,7 +30,19 @@ endpoint: The name associated with a view, idea the function name, e.g., registe
 url_for: takes the name/function of the view, and args for the name/function and generate an URL for the view
          example: url_for('hello', who='World')
 
-# This Blueprint is for authentication functions, can create a separate one for other functions e.g., blog posts functions
+template:
+* contains static data and placeholders for dynamic data
+* Flask use Jinja template library to render templates. 
+* You use Jinja template to render HTML. Jinja is configured to autoescape any data rendered in HTML
+* Syntax of Jinja refer to .html files
+
+HTML:
+* Javascript affects the behavior and content of web pages.
+* CSS defines the look and layout of content.
+
+Jinja
+* web template engine provides a Python-like expressions.
+* {{ variables }}, {% control flow e.g., for if %}, < block />
 """
 
 import functools
