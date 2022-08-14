@@ -24,6 +24,7 @@ session:
 * Flask securely signs the data so that it can not be tampered with.
 
 g:
+* g and url_for can be directly used in .html template
 
 endpoint and url_for:
 endpoint: The name associated with a view, idea the function name, e.g., register, login, ...
@@ -52,7 +53,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 
-from flaskr.db import get_db
+from remedies.db import get_db
 
 # create blueprint auth
 # __name__ indicate where it was defined
@@ -143,7 +144,8 @@ def logout():
     return redirect(url_for('index'))
 
 # ------ require auth in other views ------ #
-# create a decorator for all other views in blog
+# create a decorator for all other views in blog, 
+# ie., a user should have login otherwise direct to login page
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
