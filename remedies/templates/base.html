@@ -1,10 +1,13 @@
 <!doctype html>
-<!--NOTE: the base.html is directly under templates-->
+<!--NOTE: the base.html is directly under /templates-->
+<!--'Remedies' shown in the tab of explore-->
 <title>{% block title %}{% endblock %} - Remedies</title>
 <!--static file could be logo and JavaScript functions, in addition to css to define format-->
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!--first section of layout start from here-->
 <nav>
-  <h1>Remedies</h1>
+  <!--nav: navigation to other pages-->
+  <h1 style="margin-left: 6em;">南无药师琉璃光如来</h1>
   <ul>
     <!-- g and url_for are automatically available-->
     {% if g.user %}
@@ -16,6 +19,9 @@
     {% endif %}
   </ul>
 </nav>
+<!--without url_for, other path will be wrong e.g., auth/static/images/main_pic.jpeg -->
+<img style="max-width: 90%; height: auto;" src="{{ url_for('static', filename='images/main_pic.jpeg') }}" alt="Main Image" class="center">
+<!--contents of other .html to fill here-->
 <section class="content">
   <header>
     <!--block here will be replaced by block in other html (register.html, login.html), via extends function-->
