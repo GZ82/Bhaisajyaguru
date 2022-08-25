@@ -2,7 +2,7 @@
 name = "remedies"
 version = "0.1.0"
 description = "seed in hearts"
-authors = ["Zhen Guo <zhen.guo82@hotmail.com>"]
+authors = ["ybbhfdf <ybbhfdf@gmail.com>"]
 license = "MIT License"
 
 [tool.poetry.dependencies]
@@ -10,7 +10,7 @@ python = "^3.10"
 rdkit = "^2022.3.4"
 Flask = "^2.2.1"
 Flask-RESTful = "^0.3.9"
-setuptools
+setuptools = "*"
 
 [tool.poetry.dev-dependencies]
 
