@@ -1,7 +1,29 @@
+**/config.py
+**/config_remote.py
+**/config_manual.py
+yarn.lock
+node_modules/
+data/
+tests/
+tests_aws/**/report*
+tests_aws/**/*.pkl
+tests_aws/**/param*
+tests_aws/**/progress.json
+tests_aws/**/result*
+.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
+
+/instance
+
+# Overrides specifically for the CDK subproject
+!cdk/tests
+cdk/cdk.out
+
+# database
+database/
 
 # C extensions
 *.so
@@ -62,7 +84,6 @@ db.sqlite3
 db.sqlite3-journal
 
 # Flask stuff:
-instance/
 .webassets-cache
 
 # Scrapy stuff:
@@ -102,13 +123,16 @@ celerybeat.pid
 *.sage.py
 
 # Environments
-.env
 .venv
+.env
 env/
 venv/
 ENV/
 env.bak/
 venv.bak/
+
+# This .env file must be included for devcontainer to start
+!.devcontainer/.env
 
 # Spyder project settings
 .spyderproject
