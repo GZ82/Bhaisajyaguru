@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .text-box_0 {
+            width: 700px;
+            margin: 0 20px;
+        }
+
+        .text-box {
+            width: 20px;
+            margin: 0 30px;
+            writing-mode: vertical-rl;
+            text-orientation: middle;
+        }
+
+        .image {
+            max-width: 30%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="text-box_0" style="font-size: 48px;">南无药师琉璃光如来</div>
+        </div>
+        <div class="row">
+            <div class="text-box" style="font-size: 36px;">无上士</div>
+            <img src="{{ url_for('static', filename='images/main_pic.jpeg') }}" alt="Main Image" class="image">
+            <div class="text-box" style="font-size: 36px; margin-left: 50px;">天人师</div>
+        </div>
+        <div class="row">
+            <div class="text-box" style="font-size: 36px;">佛</div>
+        </div>
+    </div>
+</body>
+
+</html>
