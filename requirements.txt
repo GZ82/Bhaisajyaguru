@@ -1,2 +1,15 @@
 flask
-Flask-RESTful
+Flask-RESTful # RESTful API
+Flask-SQLAlchemy # Database
+Flask-WTF # Form validation
+Flask-Login # User authentication 
+Flask-Bcrypt # User authentication 
+Flask-Migrate # Database migration
+Flask-Mail # Email
+Flask-Bootstrap # Bootstrap
+Flask-DotEnv # Environment variables
+gunicorn # WSGI server for production
+requests # HTTP requests
+Pillow # Image processing
+numpy # Data processing
+pandas # Data processing
