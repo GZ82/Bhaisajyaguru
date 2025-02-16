@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from app.routes import home
+from app.routes import home, payment
 
 
 def create_app():
@@ -12,6 +12,7 @@ def create_app():
 
     # Register blueprints
     app.register_blueprint(home.bp)
+    app.register_blueprint(payment.bp)
 
     return app
 
