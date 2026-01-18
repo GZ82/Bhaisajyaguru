@@ -27,6 +27,36 @@ This document tracks the implementation of Claude Code best practices based on `
 
 ---
 
+## Static Site Deployment - COMPLETED
+
+**Date:** 2026-01-18
+
+### Tasks Completed
+
+- [x] **Updated technical-specs.md** - Confirmed GitHub Pages as hosting choice
+- [x] **Reorganized project structure** - Moved documentation to `/documentation` folder
+- [x] **Created static site in `/docs` folder:**
+  - `index.html` - Temple page with interactive icons and mantra
+  - `scriptures.html` - Scripture listing page
+  - `contacts.html` - Contact and donation page
+  - `scriptures/` - Individual sutra pages (Heart Sutra, Medicine Buddha, Great Compassion)
+  - `css/style.css` - Buddhist temple theme styling
+  - `js/temple.js` - Interactive icon functionality
+
+### GitHub Pages Setup
+
+1. Go to https://github.com/GZ82/Bhaisajyaguru/settings/pages
+2. Under "Source", select **Deploy from a branch**
+3. Select branch: **main**, folder: **/docs**
+4. Click **Save**
+
+**Site URL:** https://gz82.github.io/Bhaisajyaguru/
+
+github page only free if the repo is public.
+github page allow customized domain for free also, but need to buy a domain first.
+
+---
+
 ## Week 2: Automation - PENDING
 
 - [ ] Set up PostToolUse formatting hook
@@ -53,10 +83,21 @@ Bhaisajyaguru/
 │   └── commands/
 │       └── commit-push-pr.md
 ├── CLAUDE.md
-├── docs/
+├── docs/                    # Static site (GitHub Pages)
+│   ├── index.html
+│   ├── scriptures.html
+│   ├── contacts.html
+│   ├── scriptures/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── documentation/           # Project documentation
 │   ├── claude-code-practices.md
-│   └── claude-code-setup-progress.md  (this file)
-└── ... (existing project files)
+│   ├── claude-code-setup-progress.md  (this file)
+│   ├── development_plan.md
+│   ├── project_plan.md
+│   └── technical-specs.md
+└── backup/                  # Archived Flask app
 ```
 
 ---
