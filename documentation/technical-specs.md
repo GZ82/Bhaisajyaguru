@@ -70,24 +70,33 @@ Static Site:
 └── No build tools required (optional: add later)
 ```
 
-### File Structure (New)
+### File Structure (GitHub Pages)
 
 ```
-/static-site/          # New directory for static content
-├── index.html
-├── donate.html
-├── about.html
-├── contact.html
+/docs/                 # GitHub Pages source directory
+├── index.html         # Temple page (main)
+├── scriptures.html    # Scriptures listing
+├── contacts.html      # Contact & donation
+├── scriptures/        # Individual scripture pages
+│   ├── medicine-buddha.html
+│   ├── heart-sutra.html
+│   └── great-compassion.html
 ├── css/
 │   └── style.css
 ├── images/
+│   ├── buddha/
+│   ├── icons/
 │   ├── main_pic.jpeg
-│   ├── qr.jpeg
-│   └── (additional images)
+│   └── qr.jpeg
+├── sounds/
+│   ├── bell.mp3
+│   └── chanting.mp3
 ├── js/
-│   └── main.js        # Optional: minimal interactivity
-└── CNAME              # For custom domain (if using GitHub Pages)
+│   └── temple.js      # Icon interactions
+└── CNAME              # For custom domain (optional)
 ```
+
+**Note:** Using `/docs` folder allows GitHub Pages deployment directly from `main` branch without needing a separate `gh-pages` branch.
 
 ### Migration Tasks
 
@@ -104,16 +113,15 @@ Static Site:
 3. **Update asset references**
    - Change `{{ url_for('static', filename='...') }}` to `./images/...`, `./css/...`
 
-### Hosting Options (Ranked by Simplicity)
+### Hosting: GitHub Pages (Confirmed)
 
 | Platform | Cost | Setup | Custom Domain | Notes |
 |----------|------|-------|---------------|-------|
-| **GitHub Pages** | Free | Push to repo | Free with CNAME | Best for simplicity |
-| **Netlify** | Free tier | Connect repo | Free SSL | Auto-deploy on push |
-| **Vercel** | Free tier | Connect repo | Free SSL | Good for future expansion |
-| **Cloudflare Pages** | Free | Connect repo | Free SSL | Fast CDN |
+| **GitHub Pages** | Free | Push to repo | Free with CNAME | **SELECTED** |
 
-**Recommendation:** GitHub Pages for simplicity, Netlify if you want form handling later.
+**Decision:** GitHub Pages selected for its simplicity, zero cost, and seamless GitHub integration.
+
+**Deployment Method:** Deploy from `/docs` folder on `main` branch (simplest approach - no separate branch needed).
 
 ---
 
@@ -187,18 +195,25 @@ cp app/static/css/style.css static-site/css/
 cp app/static/images/* static-site/images/
 ```
 
-### Step 2: Deploy Static Site
+### Step 2: Deploy to GitHub Pages
 
 ```bash
-# Option A: GitHub Pages
-# 1. Create gh-pages branch or use /docs folder
-# 2. Push static-site contents
-# 3. Enable GitHub Pages in repo settings
+# GitHub Pages deployment using /docs folder:
 
-# Option B: Netlify
-# 1. Connect GitHub repo
-# 2. Set build directory to static-site/
-# 3. Deploy
+# 1. Ensure static site files are in /docs directory
+# 2. Commit and push to main branch
+git add docs/
+git commit -m "feat: add static site for GitHub Pages"
+git push origin main
+
+# 3. Enable GitHub Pages in repo settings:
+#    - Go to Settings > Pages
+#    - Source: "Deploy from a branch"
+#    - Branch: "main" folder: "/docs"
+#    - Save
+
+# 4. Site will be available at:
+#    https://<username>.github.io/<repo-name>/
 ```
 
 ### Step 3: Archive Flask Code
@@ -245,14 +260,14 @@ mv run.py archive/
 ### Confirmed
 
 - [x] Static-first architecture
-- [x] GitHub Pages / Netlify for hosting
+- [x] **GitHub Pages** for hosting (from `/docs` folder on main branch)
 - [x] External services for donations initially
 - [x] No database required for Phase 1
 - [x] No authentication required for Phase 1
 
 ### To Decide Later
 
-- [ ] Custom domain name
+- [ ] Custom domain name (optional - can add CNAME file later)
 - [ ] Blog platform choice (if adding blog)
 - [ ] Analytics tool
 - [ ] Email collection approach
@@ -300,5 +315,5 @@ mv run.py archive/
 
 ---
 
-*Last updated: 2026-01-15*
-*Status: DRAFT - Pending approval*
+*Last updated: 2026-01-18*
+*Status: APPROVED - GitHub Pages hosting confirmed*

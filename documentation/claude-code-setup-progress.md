@@ -21,9 +21,9 @@ This document tracks the implementation of Claude Code best practices based on `
   - Location: `/.claude/commands/commit-push-pr.md`
   - Usage: Type `/commit-push-pr` in Claude Code to commit, push, and create a PR
 
-- [ ] **Start using Plan mode for all non-trivial tasks**
+- [x] **Start using Plan mode for all non-trivial tasks**
   - This is a workflow practice to adopt (use `Shift+Tab` twice to enter Plan mode)
-  - Discuss where to deploy the website.
+  - Discuss where to deploy the website: GitHub Pages because it is free
 
 ---
 
