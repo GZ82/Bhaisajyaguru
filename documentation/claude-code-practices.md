@@ -76,12 +76,12 @@ Standard large language models do not "remember" your coding style or architectu
 
 ### To-Do List
 
-- [ ] Create `CLAUDE.md` in your project root
-- [ ] Add your tech stack and preferred tools
-- [ ] Document style conventions (naming, patterns, etc.)
-- [ ] Every time Claude makes a mistake, add a note
-- [ ] Commit to git so your team shares context
-- [ ] Update multiple times per week
+- [x] Create `CLAUDE.md` in your project root
+- [x] Add your tech stack and preferred tools
+- [x] Document style conventions (naming, patterns, etc.)
+- [x] Every time Claude makes a mistake, add a note
+- [x] Commit to git so your team shares context
+- [x] Update multiple times per week
 
 ---
 
@@ -129,11 +129,11 @@ Think hard about edge cases.
 
 ### To-Do List
 
-- [ ] Always start complex tasks with planning
-- [ ] Use `Shift+Tab` twice to toggle Plan mode
-- [ ] Don't accept the first plan — iterate 2-3 times
-- [ ] Only switch to auto-accept when you fully agree
-- [ ] Use "think" keywords for deeper analysis
+- [x] Always start complex tasks with planning
+- [x] Use `Shift+Tab` twice to toggle Plan mode
+- [x] Don't accept the first plan — iterate 2-3 times
+- [x] Only switch to auto-accept when you fully agree
+- [x] Use "think" keywords for deeper analysis
 
 ---
 
@@ -142,6 +142,9 @@ Think hard about edge cases.
 ### What it is
 
 Custom shortcuts stored in `.claude/commands/` that automate multi-step workflows you do many times per day.
+To invoke it:               
+  Simply type in Claude Code:                                                                                         
+  /commit-push-pr 
 
 ### Why it matters
 
@@ -172,6 +175,7 @@ your-project/
 ---
 description: Commit changes and open a pull request
 allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git commit:*), Bash(git push:*), Bash(gh pr create:*)
+claude will run commnad after `!` to pre-compute and review results, then it will run the tasks.
 ---
 
 # Context
@@ -238,10 +242,10 @@ Provide specific, actionable feedback.
 
 ### To-Do List
 
-- [ ] Create `.claude/commands/` directory
-- [ ] Identify workflows you do 3+ times per day
-- [ ] Create `/commit-push-pr` command
-- [ ] Add inline bash with `!` to pre-compute context
+- [x] Create `.claude/commands/` directory
+- [x] Identify workflows you do 3+ times per day
+- [x] Create `/commit-push-pr` command
+- [x] Add inline bash with `!` to pre-compute context
 - [ ] Check commands into git
 - [ ] Create commands for: review, testing, deployment, issue fixing
 
@@ -252,6 +256,7 @@ Provide specific, actionable feedback.
 ### What it is
 
 Separate AI personas for different phases of development. Each subagent has a specific job and clear mandate.
+Example prompt to trigger the agent: Please use the code-simplifier agent to clean up docs/index.html
 
 ### Why it matters
 
@@ -377,11 +382,11 @@ Boris uses multiple subagents that challenge each other:
 
 ### To-Do List
 
-- [ ] Create `.claude/agents/` directory
-- [ ] Build a `code-simplifier` agent
-- [ ] Build a `verify-app` agent with your testing instructions
-- [ ] Consider agents for: architecture, security, documentation
-- [ ] Have subagents challenge each other's findings
+- [x] Create `.claude/agents/` directory
+- [x] Build a `code-simplifier` agent
+- [x] Build a `verify-app` agent with your testing instructions
+- [x] Consider agents for: architecture, security, documentation
+- [x] Have subagents challenge each other's findings
 
 ---
 

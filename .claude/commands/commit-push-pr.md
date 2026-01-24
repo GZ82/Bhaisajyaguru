@@ -20,7 +20,8 @@ allowed-tools: Bash(git status:*), Bash(git diff:*), Bash(git add:*), Bash(git c
 3. Stage all relevant changes
 4. Commit with the prepared message
 5. Push to origin
-6. Create a pull request with:
+6. If on main branch: Skip PR (direct push deploys to GitHub Pages)
+   If on feature branch: Create a pull request with:
    - A descriptive title
    - Summary of changes in the body
    - Any related issue references
